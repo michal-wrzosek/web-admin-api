@@ -1,0 +1,23 @@
+version: "3"
+services:
+  api:
+    container_name: api
+    restart: always
+    build: ./packages/api
+    command: ["npm", "run", "dev"]
+    volumes:
+      - ./packages/api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3001:8080"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/development
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

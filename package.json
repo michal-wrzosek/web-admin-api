@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "FORCE_COLOR=true lerna run test"
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4"
+  }
+}
