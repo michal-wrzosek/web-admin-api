@@ -1,5 +1,7 @@
 # web-admin-api
 
+[![Build Status](https://travis-ci.com/michal-wrzosek/web-admin-api.svg?branch=master)](https://travis-ci.com/michal-wrzosek/web-admin-api)
+
 Fullstack boilerplate of 3 services:
 
 - **web** - server side rendered React app facing regular users
