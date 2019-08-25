@@ -53,6 +53,20 @@ docker-compose up --build
 
 _Work in progress_
 
+### Tech stack:
+
+- Typescript
+- Next.js
+- React
+- Hooks + Context API
+- Apollo Boost
+- Styled Components
+- Styled System
+
+### Testing stack:
+
+- _WIP_
+
 # ADMIN Service
 
 _Work in progress_
