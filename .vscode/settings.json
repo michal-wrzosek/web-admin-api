@@ -4,6 +4,8 @@
   "editor.renderWhitespace": "boundary",
   "files.exclude": {
     "**/build": true,
+    "**/dist": true,
+    "**/.next": true,
     "**/node_modules": true
   },
   "eslint.autoFixOnSave": true,
@@ -13,7 +15,8 @@
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
   ],
-  "eslint.workingDirectories": ["packages/api"],
+  "eslint.workingDirectories": ["packages/api", "packages/web"],
+  "javascript.validate.enable": false,
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -26,5 +29,7 @@
   },
   "[typescriptreact]": {
     "editor.formatOnSave": false
-  }
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false
 }
