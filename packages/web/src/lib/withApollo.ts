@@ -3,8 +3,8 @@ import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
 export default ({ uri }: { uri: string }) =>
   withApollo(
-    props => {
-      return new ApolloClient({
+    props =>
+      new ApolloClient({
         uri,
         cache: new InMemoryCache().restore(props.initialState || {}),
         credentials: 'include',
@@ -15,7 +15,6 @@ export default ({ uri }: { uri: string }) =>
               },
             }
           : {}),
-      });
-    },
-    // { getDataFromTree: "ssr" }
+      }),
+    { getDataFromTree: 'ssr' },
   );

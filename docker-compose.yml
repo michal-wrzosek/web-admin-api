@@ -1,7 +1,22 @@
 version: "3"
 services:
-  api:
-    container_name: api
+  waa-web:
+    container_name: waa-web
+    restart: always
+    build: ./packages/web
+    command: ["npm", "run", "dev"]
+    volumes:
+      - ./packages/web:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - GRAPHQL_URL_SERVER=http://waa-api:8080/graphql
+      - GRAPHQL_URL_CLIENT=http://localhost:3001/graphql
+    depends_on:
+      - waa-api
+  waa-api:
+    container_name: waa-api
     restart: always
     build: ./packages/api
     command: ["npm", "run", "dev"]
@@ -11,11 +26,11 @@ services:
     ports:
       - "3001:8080"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/development
+      - MONGODB_URI=mongodb://waa-mongo:27017/development
     depends_on:
-      - mongo
-  mongo:
-    container_name: mongo
+      - waa-mongo
+  waa-mongo:
+    container_name: waa-mongo
     image: mongo
     volumes:
       - ./data:/data/db
