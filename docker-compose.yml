@@ -2,7 +2,6 @@ version: "3"
 services:
   waa-web:
     container_name: waa-web
-    restart: always
     build: ./packages/web
     command: ["npm", "run", "dev"]
     volumes:
@@ -17,7 +16,6 @@ services:
       - waa-api
   waa-api:
     container_name: waa-api
-    restart: always
     build: ./packages/api
     command: ["npm", "run", "dev"]
     volumes:
